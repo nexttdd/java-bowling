@@ -1,5 +1,7 @@
 package domain;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Player {
 
     private static final int NAME_LENGTH = 3;
@@ -17,4 +19,9 @@ public class Player {
         return new Player(name);
     }
 
+    @Override
+    public String toString() {
+        return "|"+ StringUtils.center(name, 5);
+
+    }
 }
