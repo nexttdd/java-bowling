@@ -3,7 +3,7 @@ package domain;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum Symbol {
+public enum ScoreType {
     STRIKE(10, "X"),
     NUMBER_9(9, "9"),
     NUMBER_8(8, "8"),
@@ -16,7 +16,7 @@ public enum Symbol {
     NUMBER_1(1, "1"),
     GETTER(0, "-");
 
-    Symbol(int score, String specialCharacter) {
+    ScoreType(int score, String specialCharacter) {
         this.score = score;
         this.specialCharacter = specialCharacter;
     }
@@ -28,10 +28,10 @@ public enum Symbol {
 
     static {
         symbols = new HashMap<>();
-        Symbol[] symbols = Symbol.values();
+        ScoreType[] scoreTypes = ScoreType.values();
 
-        for (Symbol symbol : symbols) {
-            Symbol.symbols.put(symbol.score, symbol.specialCharacter);
+        for (ScoreType scoreType : scoreTypes) {
+            ScoreType.symbols.put(scoreType.score, scoreType.specialCharacter);
         }
     }
 
