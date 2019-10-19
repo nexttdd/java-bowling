@@ -24,22 +24,30 @@ public enum ScoreType {
     private int score;
     private String specialCharacter;
 
-    private static final Map<Integer, String> symbols;
+    private static final Map<Integer, ScoreType> scoreTypes;
 
     static {
-        symbols = new HashMap<>();
+        scoreTypes = new HashMap<>();
         ScoreType[] scoreTypes = ScoreType.values();
 
         for (ScoreType scoreType : scoreTypes) {
-            ScoreType.symbols.put(scoreType.score, scoreType.specialCharacter);
+            ScoreType.scoreTypes.put(scoreType.score, scoreType);
         }
     }
 
 
-    public static String of(int score) {
-        if (symbols.containsKey(score)) {
-            return symbols.get(score);
+    public static ScoreType of(int score) {
+        if (scoreTypes.containsKey(score)) {
+            return scoreTypes.get(score);
         }
         throw new IllegalArgumentException();
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public String getSpecialCharacter() {
+        return specialCharacter;
     }
 }
