@@ -4,7 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Symbol {
-    STRIKE(10, "X");
+    STRIKE(10, "X"),
+    NUMBER_9(9, "9"),
+    NUMBER_8(8, "8"),
+    NUMBER_7(7, "7"),
+    NUMBER_6(6, "6"),
+    NUMBER_5(5, "5"),
+    NUMBER_4(4, "4"),
+    NUMBER_3(3, "3"),
+    NUMBER_2(2, "2"),
+    NUMBER_1(1, "1"),
+    GETTER(0, "-");
 
     Symbol(int score, String specialCharacter) {
         this.score = score;
@@ -18,10 +28,10 @@ public enum Symbol {
 
     static {
         symbols = new HashMap<>();
-        Symbol[] symbols22 = Symbol.values();
+        Symbol[] symbols = Symbol.values();
 
-        for (Symbol symbol : symbols22) {
-            symbols.put(symbol.score, symbol.specialCharacter);
+        for (Symbol symbol : symbols) {
+            Symbol.symbols.put(symbol.score, symbol.specialCharacter);
         }
     }
 
@@ -30,7 +40,6 @@ public enum Symbol {
         if (symbols.containsKey(score)) {
             return symbols.get(score);
         }
-
-        return Integer.toString(score);
+        throw new IllegalArgumentException();
     }
 }
