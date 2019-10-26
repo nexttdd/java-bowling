@@ -15,6 +15,10 @@ public class NormalFrame {
         scores.register(score);
     }
 
+    public Scores play2(int score) {
+        return scores.register2(score);
+    }
+
     public Player getPlayer() {
         return player;
     }

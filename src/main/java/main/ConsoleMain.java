@@ -2,6 +2,7 @@ package main;
 
 import domain.NormalFrame;
 import domain.Player;
+import domain.Scores;
 import view.InputView;
 import view.ResultView;
 
@@ -28,7 +29,9 @@ public class ConsoleMain {
 
             //Input - score
             int score = InputView.inputScore(i+1);
-            frame.play(score);
+            //frame.play(score);
+            Scores scores = frame.play2(score);
+            ResultView.scoreBoard(player,scores);
         }
     }
 }

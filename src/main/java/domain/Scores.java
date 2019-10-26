@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Scores {
 
@@ -26,6 +27,21 @@ public class Scores {
         }
     }
 
+    public Scores register2(int score) {
+        if (scores.size() == maxChance) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
+        scores.add(ScoreType.of(score));
+
+        int sum = getSum();
+        if (maxChance >= 2 && sum > 10) {
+            throw new IllegalArgumentException();
+        }
+
+        return this;
+    }
+
     public int getChanceNumber() {
         return scores.size();
     }
@@ -47,5 +63,12 @@ public class Scores {
         return scores.stream()
                 .mapToInt(score -> score.getScore())
                 .sum();
+    }
+
+    @Override
+    public String toString() {
+        return scores.stream()
+                .map(score -> score.getSpecialCharacter())
+                .collect(Collectors.joining("|"));
     }
 }
