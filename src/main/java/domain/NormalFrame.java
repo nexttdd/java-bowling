@@ -24,6 +24,10 @@ public class NormalFrame {
     }
 
     public int getTotalScore() {
-        return scores.getResultNumber();
+        return scores.getSum();
+    }
+
+    public boolean isEnd() {
+        return scores.isEnd();
     }
 }

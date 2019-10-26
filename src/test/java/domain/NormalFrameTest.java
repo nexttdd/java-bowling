@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NormalFrameTest {
 
@@ -35,10 +36,14 @@ class NormalFrameTest {
         assertThat(normalFrame.getTotalScore()).isEqualTo(8);
     }
 
-    @ParameterizedTest
+    @Test
     void frame종료여부_확인() {
         //when
         normalFrame.play(5);
         normalFrame.play(3);
+
+        assertTrue(normalFrame.isEnd());
+
+
     }
 }

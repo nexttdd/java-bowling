@@ -6,7 +6,6 @@ import java.util.List;
 public class Scores {
 
     private final List<ScoreType> scores;
-    private int resultNumber;
     private int maxChance;
 
     public Scores(int chance) {
@@ -21,13 +20,8 @@ public class Scores {
 
         scores.add(ScoreType.of(score));
 
-        if (scores.size() >= 2) {
-            for (ScoreType type : scores) {
-                resultNumber += type.getScore();
-            }
-        }
-
-        if (maxChance >= 2 && resultNumber > 10) {
+        int sum = getSum();
+        if (maxChance >= 2 && sum > 10) {
             throw new IllegalArgumentException();
         }
     }
@@ -36,7 +30,22 @@ public class Scores {
         return scores.size();
     }
 
-    public int getResultNumber() {
-        return resultNumber;
+    public boolean isEnd() {
+        int sum = getSum();
+        if (sum == 10) {
+            return true;
+        }
+
+        if (scores.size() == maxChance) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public int getSum() {
+        return scores.stream()
+                .mapToInt(score -> score.getScore())
+                .sum();
     }
 }
