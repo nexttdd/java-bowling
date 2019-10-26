@@ -35,4 +35,8 @@ public class Scores {
     public int getChanceNumber() {
         return scores.size();
     }
+
+    public int getResultNumber() {
+        return resultNumber;
+    }
 }
