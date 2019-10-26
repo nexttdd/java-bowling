@@ -11,7 +11,8 @@ import java.util.List;
 
 public class ConsoleMain {
     public static void main(String[] args) {
-        Player player = InputView.inputPlayer();
+//        Player player = InputView.inputPlayer();
+        Player player= Player.of("ASD");
         ResultView.scoreBoard(player);
 
         List<NormalFrame> frames = new ArrayList<>();
