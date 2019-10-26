@@ -2,8 +2,6 @@ package domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,10 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class NormalFrameTest {
 
     private NormalFrame normalFrame;
-    private String player = "player";
+    private Player player;
 
     @BeforeEach
     void setUp() {
+        player = Player.of("123");
         normalFrame = new NormalFrame(player);
     }
 
@@ -22,7 +21,7 @@ class NormalFrameTest {
     void 객체생성() {
         //then
         assertThat(normalFrame).isNotNull();
-        assertThat(normalFrame.getPlayerName()).isEqualTo(player);
+        assertThat(normalFrame.getPlayer()).isNotNull();
         assertThat(normalFrame.getScores()).isNotNull();
     }
 
@@ -43,7 +42,5 @@ class NormalFrameTest {
         normalFrame.play(3);
 
         assertTrue(normalFrame.isEnd());
-
-
     }
 }

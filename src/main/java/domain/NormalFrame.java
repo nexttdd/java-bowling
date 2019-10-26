@@ -3,11 +3,11 @@ package domain;
 public class NormalFrame {
     //TODO : 투구, player 이름 저장, scores 객체 생성
 
-    private String playerName;
+    private Player player;
     private Scores scores;
 
-    public NormalFrame(String playerName) {
-        this.playerName = playerName;
+    public NormalFrame(Player player) {
+        this.player = player;
         scores = new Scores(2);
     }
 
@@ -15,8 +15,8 @@ public class NormalFrame {
         scores.register(score);
     }
 
-    public String getPlayerName() {
-        return playerName;
+    public Player getPlayer() {
+        return player;
     }
 
     public Scores getScores() {
