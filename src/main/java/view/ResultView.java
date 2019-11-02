@@ -2,6 +2,7 @@ package view;
 
 import domain.NormalFrame;
 import domain.Player;
+import domain.ScoreType;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -22,11 +23,17 @@ public class ResultView {
         System.out.println(player.toString() + " | " + getScoreString(normalFrames));
     }
 
-    private static String getScoreString(List<NormalFrame> normalFrames) {
+    public static String getScoreString(List<NormalFrame> normalFrames) {
         if (normalFrames.isEmpty()) {
             return "     " + String.join("", Collections.nCopies(10, StringUtils.rightPad("|", 7)));
         }
 
+//        for(int i = 0 ; i< normalFrames.size() ; i++){
+//            NormalFrame normalFrame = normalFrames.get(i);
+//            if(normalFrame.isEnd() && normalFrame.getTotalScore() == 10){
+//                return normalFrames.get(0).getScores() +"|"+ ScoreType.STRIKE.getSpecialCharacter();
+//            }
+//        }
         return normalFrames.stream()
                 .map(normalFrame -> String.valueOf(normalFrame.getScores()))
                 .collect(Collectors.joining("|"));

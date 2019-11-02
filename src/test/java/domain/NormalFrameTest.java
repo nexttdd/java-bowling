@@ -2,6 +2,10 @@ package domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import view.ResultView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -42,5 +46,16 @@ class NormalFrameTest {
         normalFrame.play(3);
 
         assertTrue(normalFrame.isEnd());
+    }
+
+    @Test
+    void 프레임에서_2와_8이_입력됐을때_스페어가된다() {
+        List<NormalFrame> normalFrames = new ArrayList<>();
+        normalFrame.play(2);
+        normalFrame.play(8);
+        normalFrames.add(normalFrame);
+
+        ResultView.getScoreString(normalFrames);
+        System.out.println(normalFrame.getScores());
     }
 }

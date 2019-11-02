@@ -54,6 +54,9 @@ public class Scores {
 
     @Override
     public String toString() {
+        if(isEnd() && scores.size() == 2 && getSum() == 10){
+            return scores.get(0).getScore() + "|" + ScoreType.SPARE.getSpecialCharacter();
+        }
         return scores.stream()
                 .map(score -> score.getSpecialCharacter())
                 .collect(Collectors.joining("|"));

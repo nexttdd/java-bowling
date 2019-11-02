@@ -17,7 +17,7 @@ public class ConsoleMain {
 
         List<NormalFrame> frames = new ArrayList<>();
         NormalFrame frame = new NormalFrame(player);
-
+        frames.add(frame);
         for (int i = 0 ; i < 10 ; ) {
             //Input - score
             int score = InputView.inputScore(i+1);
@@ -25,8 +25,8 @@ public class ConsoleMain {
             ResultView.scoreBoard(player,frames);
 
             if (frame.isEnd()) {
-                frames.add(frame);
                 frame = new NormalFrame(player);
+                frames.add(frame);
                 i++;
             }
         }
