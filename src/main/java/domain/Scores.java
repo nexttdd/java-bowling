@@ -14,20 +14,7 @@ public class Scores {
         scores = new ArrayList<>(chance);
     }
 
-    public void register(int score) {
-        if (scores.size() == maxChance) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-
-        scores.add(ScoreType.of(score));
-
-        int sum = getSum();
-        if (maxChance >= 2 && sum > 10) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public Scores register2(int score) {
+    public Scores register(int score) {
         if (scores.size() == maxChance) {
             throw new ArrayIndexOutOfBoundsException();
         }

@@ -20,16 +20,14 @@ public class ConsoleMain {
             NormalFrame frame = new NormalFrame(player);
             frames.add(frame);
 
-            if (frame.isEnd()) {
-                i++;
-                continue;
-            }
-
             //Input - score
             int score = InputView.inputScore(i+1);
-            //frame.play(score);
-            Scores scores = frame.play2(score);
+            Scores scores = frame.play(score);
             ResultView.scoreBoard(player,frames);
+
+            if (frame.isEnd()) {
+                i++;
+            }
         }
     }
 }

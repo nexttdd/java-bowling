@@ -11,12 +11,8 @@ public class NormalFrame {
         scores = new Scores(2);
     }
 
-    public void play(int score) {
-        scores.register(score);
-    }
-
-    public Scores play2(int score) {
-        return scores.register2(score);
+    public Scores play(int score) {
+        return scores.register(score);
     }
 
     public Player getPlayer() {

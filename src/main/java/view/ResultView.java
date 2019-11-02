@@ -2,7 +2,6 @@ package view;
 
 import domain.NormalFrame;
 import domain.Player;
-import domain.Scores;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -24,8 +23,8 @@ public class ResultView {
     }
 
     private static String getScoreString(List<NormalFrame> normalFrames) {
-        if(normalFrames.isEmpty()) {
-            return "     " + String.join("", Collections.nCopies(11, StringUtils.rightPad("|", 5) ));
+        if (normalFrames.isEmpty()) {
+            return "     " + String.join("", Collections.nCopies(10, StringUtils.rightPad("|", 7)));
         }
 
         return normalFrames.stream()
