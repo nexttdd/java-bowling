@@ -16,16 +16,17 @@ public class ConsoleMain {
         ResultView.scoreBoard(player);
 
         List<NormalFrame> frames = new ArrayList<>();
-        for (int i = 0 ; i < 10 ; ) {
-            NormalFrame frame = new NormalFrame(player);
-            frames.add(frame);
+        NormalFrame frame = new NormalFrame(player);
 
+        for (int i = 0 ; i < 10 ; ) {
             //Input - score
             int score = InputView.inputScore(i+1);
             Scores scores = frame.play(score);
             ResultView.scoreBoard(player,frames);
 
             if (frame.isEnd()) {
+                frames.add(frame);
+                frame = new NormalFrame(player);
                 i++;
             }
         }
