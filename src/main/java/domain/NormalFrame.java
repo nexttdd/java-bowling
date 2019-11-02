@@ -1,14 +1,14 @@
 package domain;
 
-public class NormalFrame {
-    //TODO : 투구, player 이름 저장, scores 객체 생성
+import util.BowlingConst;
 
+public class NormalFrame {
     private Player player;
     private Scores scores;
 
     public NormalFrame(Player player) {
         this.player = player;
-        scores = new Scores(2);
+        scores = new Scores(BowlingConst.NORMAL_CHANE);
     }
 
     public Scores play(int score) {

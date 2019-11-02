@@ -1,11 +1,12 @@
 package domain;
 
+import util.BowlingConst;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Scores {
-
     private final List<ScoreType> scores;
     private int maxChance;
 
@@ -22,7 +23,7 @@ public class Scores {
         scores.add(ScoreType.of(score));
 
         int sum = getSum();
-        if (maxChance >= 2 && sum > 10) {
+        if (maxChance >= BowlingConst.NORMAL_CHANE && sum > BowlingConst.MAX_SCORE) {
             throw new IllegalArgumentException();
         }
 
@@ -35,7 +36,7 @@ public class Scores {
 
     public boolean isEnd() {
         int sum = getSum();
-        if (sum == 10) {
+        if (sum == BowlingConst.MAX_SCORE) {
             return true;
         }
 
@@ -52,9 +53,13 @@ public class Scores {
                 .sum();
     }
 
+    public boolean isSpare() {
+        return scores.size() == BowlingConst.NORMAL_CHANE && getSum() == BowlingConst.MAX_SCORE;
+    }
+
     @Override
     public String toString() {
-        if(isEnd() && scores.size() == 2 && getSum() == 10){
+        if(isSpare()){
             return scores.get(0).getScore() + "|" + ScoreType.SPARE.getSpecialCharacter();
         }
         return scores.stream()

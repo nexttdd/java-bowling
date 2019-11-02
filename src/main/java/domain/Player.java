@@ -3,7 +3,6 @@ package domain;
 import org.apache.commons.lang3.StringUtils;
 
 public class Player {
-
     private static final int NAME_LENGTH = 3;
     private final String name;
 
@@ -12,7 +11,7 @@ public class Player {
     }
 
     public static Player of(String name) {
-        if(name.length() != NAME_LENGTH) {
+        if (name.length() != NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
 
@@ -21,7 +20,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "|"+ StringUtils.center(name, 5);
+        return "|" + StringUtils.center(name, 5);
 
     }
 }

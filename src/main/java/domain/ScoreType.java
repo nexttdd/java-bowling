@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum ScoreType {
     STRIKE(10, "X"),
-    SPARE(9, "/"),
+    SPARE(10, "/"),
     NUMBER_9(9, "9"),
     NUMBER_8(8, "8"),
     NUMBER_7(7, "7"),

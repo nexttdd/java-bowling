@@ -12,17 +12,18 @@ import java.util.List;
 public class ConsoleMain {
     public static void main(String[] args) {
 //        Player player = InputView.inputPlayer();
-        Player player= Player.of("ASD");
+        Player player = Player.of("ASD");
         ResultView.scoreBoard(player);
 
         List<NormalFrame> frames = new ArrayList<>();
         NormalFrame frame = new NormalFrame(player);
         frames.add(frame);
-        for (int i = 0 ; i < 10 ; ) {
+
+        for (int i = 0; i < 10; ) {
             //Input - score
-            int score = InputView.inputScore(i+1);
+            int score = InputView.inputScore(i + 1);
             Scores scores = frame.play(score);
-            ResultView.scoreBoard(player,frames);
+            ResultView.scoreBoard(player, frames);
 
             if (frame.isEnd()) {
                 frame = new NormalFrame(player);
