@@ -20,7 +20,12 @@ public class Scores {
             throw new ArrayIndexOutOfBoundsException();
         }
 
-        scores.add(ScoreType.of(score));
+        //TODO : strike, spare 구분해서 add
+        if (scores.size() < 1 && score == ScoreType.STRIKE.getScore()) {
+            scores.add(ScoreType.STRIKE);
+        } else {
+            scores.add(ScoreType.of(score));
+        }
 
         int sum = getSum();
         if (maxChance >= BowlingConst.NORMAL_CHANE && sum > BowlingConst.MAX_SCORE) {
@@ -60,8 +65,9 @@ public class Scores {
     @Override
     public String toString() {
         if(isSpare()){
-            return scores.get(0).getScore() + "|" + ScoreType.SPARE.getSpecialCharacter();
+            return scores.get(0).getSpecialCharacter() + "|" + ScoreType.SPARE.getSpecialCharacter();
         }
+
         return scores.stream()
                 .map(score -> score.getSpecialCharacter())
                 .collect(Collectors.joining("|"));
